@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+
+  div(class='list-group')
+    each plant in plant_list
+
+      a(href=plant.url class='list-group-item list-group-item-action') #{plant.name}
+
+    else
+      li There are no plants.

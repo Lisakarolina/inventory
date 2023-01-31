@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+
+  div(class='list-group')
+  each val in list_categories
+    
+    a(href=val.url class='list-group-item list-group-item-action') #{val.name}
+
+  else
+    li There are no categories.

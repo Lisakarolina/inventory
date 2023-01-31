@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em Plant Catalog], a simple plant inventary built with Express, MongoDB and Bootstrap.
+  | You can view plants and categories of plants, delete and create them. In the case of categories, the delete button is only shown
+  | when no plant uses the category.
+
+  p
+  if error
+    p Error getting dynamic content.
+  else
+    p The inventary contains:
+
+    ul
+      li #[strong Plants:] !{data.plant_count}
+      li #[strong Categories:] !{data.category_count}

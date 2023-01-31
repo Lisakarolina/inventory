@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 #{plant.name}
+
+  p #[strong Description:] #{plant.description}
+  p #[strong Native to:] #{plant.native}
+  p #[strong Bloom:] #{plant.bloom}
+  p #[strong Category:]
+    each val, index in plant.category
+      a(href=val.url)  #{val.name}
+      if index < plant.category.length - 1
+        |,
+
+  form(method='POST' action='')
+      div.form-group
+        input#id.form-control(type='hidden',name='id', required='true', value=plant.id )
+
+      button.btn.btn-primary(type='submit') Delete

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  h1 Category: #{category.name}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Plants of that Category
+
+    dl
+      each plant in category_plants
+        dt
+          a(href=plant.url) #{plant.name}
+        dd #{plant.description}
+
+      else
+        p This category has no plants
+
+        form(method='POST' action='')
+          div.form-group
+            input#id.form-control(type='hidden',name='id', required='true', value=category.id )
+
+          button.btn.btn-primary(type='submit') Delete
